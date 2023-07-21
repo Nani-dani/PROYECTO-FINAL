@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { login } from '../actions/userActions';
 
 export const Login = () => {
-       const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
-       const dispatch = useDispatch();
-       const handleLogin = async () => {
+    const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
+    const dispatch = useDispatch();
+    const handleLogin = async () => {
 
         try {
             await loginWithRedirect();
@@ -17,7 +17,8 @@ export const Login = () => {
     };
     useEffect(() => {
         if (isAuthenticated && user) {
-            dispatch(login(user))};
+            dispatch(login(user))
+        };
     }
         , [isAuthenticated, user, dispatch]);
 
@@ -27,9 +28,15 @@ export const Login = () => {
 
 
 
-    return <button onClick={handleLogin}>Acceder</button>
-
+    return (
+        <div class="text-center">
+            <h1>MI CELEBRIDADES FAVORITAS</h1>
+            <img src="https://images-eu.ssl-images-amazon.com/images/I/81nl+BVgOvL._AC_UL600_SR600,600_.jpg" />
+            <button type="button" class="btn btn-primary" onClick={handleLogin}>Acceder</button>
+        </div>
+    )
 };
 
+export default login;
 
 
